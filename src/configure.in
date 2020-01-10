@@ -1,0 +1,36 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT(src/pax.c)
+AM_INIT_AUTOMAKE("pax", 3.4)
+AM_CONFIG_HEADER(config.h)
+AC_PREFIX_DEFAULT(/usr)
+
+AC_SUBST(PACKAGE)
+AC_SUBST(VERSION)
+
+if test x"$ac_default_prefix" = x"/usr"
+then
+	if test x"${mandir}" = x'${prefix}/man'
+	then
+		mandir='${prefix}/share/man'
+	fi
+fi
+
+EXTRA_CFLAGS="-Werror -W -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -DXTSTRINGDEFINES -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef -Wmissing-format-attribute"
+AC_SUBST(EXTRA_CFLAGS)
+dnl Checks for programs.
+AC_PROG_CC
+AC_ISC_POSIX
+AC_PROG_INSTALL
+AC_PROG_MAKE_SET
+AC_PROG_RANLIB
+
+# Largefile support
+AC_SYS_LARGEFILE
+
+dnl Checks for libraries.
+dnl Checks for header files.
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+
+AC_OUTPUT([Makefile lib/Makefile src/Makefile])
