@@ -1,0 +1,112 @@
+2005-08-01  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/ar_io.c: Replace LONG_OFF_T with _FILE_OFFSET_BITS.
+	* src/options.c (str_offt): Likewise.
+	* src/cpio.c: Likewise.
+	* src/gen_subs.c: Likewise.
+	* src/tar.c: Likewise.
+
+2005-07-29  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version 3.3
+
+	* lib/fts.c: new file, with LFS support.
+	* lib/fts.h: Likewise.
+
+	* configure.in: check for large file support.
+	(After an idea from Damian McGuckin <damianm@esi.com.au>)
+
+2005-06-21  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/options.c (pax_options): Add -O to getopt_long
+	(Patch from Thomas Rachel <mail@thomasrachel.de>).
+
+	* src/pax.1: Add missing -O in synopsys.
+
+2005-04-25  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/extern.h: Add format attribute.
+
+2005-04-01  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/tar.c (tar_chksm): Use char instead of unsigned char.
+
+2003-10-17  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version 3.2
+
+	* src/*.[ch]: Sync with pax version from OpenBSD cvs.
+
+2003-01-17  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version  3.1
+
+	* src/free.c: always clear st_rdev, since some kernels return
+	random value if it is not in use
+	(Patch from Jim Lowe <jhl@richmond.infi.net>).
+
+	* src/*.[ch]: Sync with pax version from OpenBSD cvs.
+
+	* src/pax.1: Add documentation fixes
+	(Patch from Karsten Hopp <karsten@redhat.de>).
+
+2003-01-16  Thorsten Kukuk  <kukuk@suse.de>
+
+	* Update to current autoconf/automake
+
+	* lib/bsdfunc.h: Add strlcpy and strmode proto types.
+
+	* lib/strlcpy.c: Include bsdfunc.h.
+	* lib/strmode.c: Likewise.
+	* src/tar.c: Likewise.
+	* src/tables.c: Likewise.
+	* src/ar_subs.c: Likewise.
+	* src/cache.c: Likewise.
+	* src/ftree.c: Likewise.
+	* src/pat_rep.c: Likewise.
+	* src/gen_subs.c: Likewise.
+
+	* lib/Makefile.am (CFLAGS): rename to AM_CFLAGS.
+
+	* acconfig.h: Removed.
+
+2002-07-04  Thorsten Kukuk  <kukuk@suse.de>
+
+	* Update to current autoconf/automake
+
+2001-12-18  Thorsten Kukuk  <kukuk@suse.de>
+
+	* release version 3.0
+
+	* src/tar.c (ustar_rd): File name and link name are not null
+	terminated, if they are TNMSZ byte long.
+
+2001-12-16  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/tar.c (ustar_wr): Write only 12bit of mode field (POSIX
+	  requirement). Use full 512byte block for checksum calculation.
+
+	* src/gen_subs.c: Get ride of tzfile.h.
+
+	* src/options.c (my_getline): Use getline instead of fgetc.
+	(pax_options): Use getopt_long and add version and help option.
+	(pax_usage): Add option if called on error or on help request.
+
+	* src/tar.c: Always set devmajor/devminor.
+
+2001-12-15  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/pax.c: Reformat to GNU coding style, fix compiler warnings.
+
+2001-12-14  Thorsten Kukuk  <kukuk@suse.de>
+
+	* src/strmode.c: reformat and fix compiler warnings.
+
+	* src/cache.c: Replace getpassent with getpwent and getgroupent
+	with getgrent.
+
+	* src/sel_subs.c: Include time.h.
+
+	* src/pax.c (main): Initialize listf with stderr.
+
+	* src/options.c (getline): Replace fgetln with fgets for testing.
