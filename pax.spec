@@ -3,7 +3,7 @@
 Summary: POSIX File System Archiver
 Name: pax
 Version: 3.4
-Release: 17%{?dist}
+Release: 19%{?dist}
 License: BSD
 Group: Applications/Archiving
 Source: ftp://ftp.suse.com/pub/people/kukuk/pax/%{name}-%{version}.tar.bz2
@@ -90,6 +90,12 @@ if [ $1 -eq 0 ]; then
 fi
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 3.4-19
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 3.4-18
+- Mass rebuild 2013-12-27
+
 * Thu Jun 06 2013 Pavel Raiskup <praiskup@redhat.com> - 3.4-17
 - remove old %%{_bindir}/pax binary if existent during update
 
